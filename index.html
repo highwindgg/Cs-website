@@ -3,16 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人簡介：晶片工程師之路 - 超動感版</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>個人簡介：晶片工程師之路 (基礎穩定版)</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans TC', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f9;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .section {
+            padding: 60px 0;
+            text-align: center;
+        }
+        /* 導覽列 */
+        .navbar {
+            background-color: #2c3e50; /* 深藍色 */
+            color: #fff;
+            padding: 15px 0;
+            position: sticky; /* 粘性定位 */
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        .navbar a:hover {
+            color: #4a90e2;
+        }
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        /* 英雄區塊 */
+        .hero-section {
+            background: linear-gradient(135deg, #4a90e2, #007bff);
+            color: #fff;
+            padding: 100px 0 60px;
+        }
+        .hero-section h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #fff;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .social-links a {
+            color: #fff;
+            display: inline-block;
+            margin: 0 10px;
+            padding: 8px 15px;
+            border: 1px solid #fff;
+            border-radius: 20px;
+            transition: background-color 0.3s;
+        }
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* 內容區塊通用樣式 */
+        h2 {
+            font-size: 2em;
+            color: #007bff;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        .bg-light {
+            background-color: #fff;
+        }
+        .bg-dark {
+            background-color: #34495e;
+            color: #fff;
+        }
+        .bg-dark h2 {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+        
+        /* 卡片佈局 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+            text-align: left;
+        }
+        .card {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #007bff;
+        }
+        .bg-dark .card {
+            background-color: #4a637a;
+            color: #fff;
+            border-left-color: #fff;
+        }
+        .card h3 {
+            color: #007bff;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+        }
+        .bg-dark .card h3 {
+             color: #fff;
+        }
+        .card i {
+            margin-right: 10px;
+            font-size: 1.4em;
+        }
+        .footer {
+            background-color: #2c3e50;
+            color: #8fa3b7;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
 
     <nav class="navbar">
         <div class="container">
-            <a href="#hero" class="brand">🚀 我的科技旅程</a>
+            <span style="font-size: 1.5em; font-weight: bold;">🚀 我的個人網站</span>
             <ul class="nav-links">
                 <li><a href="#about">關於我</a></li>
                 <li><a href="#career-choice">未來產業</a></li>
@@ -22,101 +164,75 @@
         </div>
     </nav>
 
-    <header id="hero" class="hero-section section parallax-bg" data-parallax-speed="0.5">
-        <div class="container content-reveal">
-            <img src="40030410-1.jpg" alt="您的照片" class="profile-photo animate-pop-in">
-            <h1 class="animate-fade-up">哈囉！我是 林楷棨</h1>
-            <p class="lead-text animate-fade-up delay-1">一位熱衷於科技探索的學習者，正積極朝向半導體產業的晶片工程師之路邁進。</p>
-            <div class="social-links animate-fade-up delay-2">
-                <a href="#" target="_blank" class="btn-social linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="#" target="_blank" class="btn-social github"><i class="fab fa-github"></i> GitHub</a>
+    <header id="hero" class="hero-section section">
+        <div class="container">
+            <img src="profile.jpg" alt="我的個人照片" class="profile-photo"> 
+            
+            <h1>哈囉！我是 [您的名字]</h1>
+            <p style="font-size: 1.2em;">一位熱衷於科技探索的學習者，正積極朝向半導體產業的晶片工程師之路邁進。</p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
         </div>
     </header>
 
-    <section id="about" class="about-section section bg-white">
-        <div class="container content-reveal">
-            <h2 class="animate-fade-in">關於我</h2>
-            <div class="about-content animate-fade-in delay-1">
-                <p>
-                    從小便對周遭事物充滿好奇，特別是電子產品與其背後的運作原理。這種求知慾引領我深入學習數理與資訊相關知識，並在過程中確立了對硬體工程的濃厚興趣。我樂於面對挑戰，享受解決複雜問題的過程，並相信透過不斷學習與實踐，能夠為科技發展貢獻一份心力。
-                </p>
-                <p>
-                    我的興趣不僅限於學術，也喜歡 <strong>[您可以新增您的興趣，例如閱讀、運動、旅行、程式設計]</strong>。這些活動讓我保持身心平衡，並從中汲取靈感，以更開闊的視野面對工程上的挑戰。
-                </p>
-            </div>
-            <div class="icon-grid animate-fade-in delay-2">
-                <div class="icon-item"><i class="fas fa-lightbulb"></i> <p>創新思維</p></div>
-                <div class="icon-item"><i class="fas fa-code"></i> <p>程式熱情</p></div>
-                <div class="icon-item"><i class="fas fa-brain"></i> <p>問題解決</p></div>
-            </div>
-        </div>
-    </section>
-
-    <section id="career-choice" class="career-choice-section section bg-gradient-blue parallax-bg" data-parallax-speed="0.2">
-        <div class="container content-reveal">
-            <h2 class="animate-fade-in">未來想選擇的就業產業</h2>
-            <div class="card animate-scale-in delay-1">
-                <h3><i class="fas fa-microchip icon-glow"></i> 選擇的產業：晶片工程師（半導體產業）</h3>
-                <p>
-                    我從小就對電腦硬體的運作深感興趣。晶片是所有現代科技（電腦、AI、手機、5G）的核心。往這方面發展能讓我的興趣結合工作，同時半導體產業在全球佔據重要的地位，而且隨著 AI 與物聯網的發展，這個領域具有極佳的成長潛力與挑戰性。
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section id="industry-intro" class="industry-intro-section section bg-white">
-        <div class="container content-reveal">
-            <h2 class="animate-fade-in">所選擇產業的概要介紹</h2>
-            <div class="card-grid">
-                <div class="card animate-fade-in delay-1">
-                    <h3><i class="fas fa-scroll"></i> 產業定義與範疇</h3>
-                    <p>
-                        晶片工程師屬於半導體產業，負責設計、製造、封裝及測試積體電路（IC）。晶片工程師的核心工作是將複雜的電子系統濃縮到微小的矽晶片上，是數位世界的基石。
-                    </p>
-                </div>
-                <div class="card animate-fade-in delay-2">
-                    <h3><i class="fas fa-user-tie"></i> 主要角色</h3>
-                    <ul>
-                        <li>**IC 設計工程師：** 負責規劃和設計電路邏輯。</li>
-                        <li>**製程工程師：** 負責晶圓製造的流程管理與良率提升。</li>
-                        <li>**封裝測試工程師：** 負責成品測試與保護。</li>
-                    </ul>
-                </div>
-                <div class="card animate-fade-in delay-3">
-                    <h3><i class="fas fa-network-wired"></i> 產業生態鏈</h3>
-                    <p>
-                        產業鏈分為 **IC 設計**（如聯發科）、**晶圓代工製造**（如台積電）和 **封裝測試**（如日月光投控）三大環節。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ai-contribution" class="ai-contribution-section section bg-dark-blue parallax-bg" data-parallax-speed="0.3">
-        <div class="container content-reveal text-white">
-            <h2 class="animate-fade-in">AI 在此產業中有何貢獻</h2>
-            <p class="intro-text animate-fade-in delay-1">
-                人工智慧（AI）是半導體產業效率與創新的關鍵助力：
+    <section id="about" class="about-section section bg-light">
+        <div class="container">
+            <h2>關於我</h2>
+            <p style="max-width: 800px; margin: 0 auto;">
+                從小便對電腦硬體的運作深感興趣，這種求知慾引領我深入學習數理與資訊相關知識。我樂於面對挑戰，享受解決複雜問題的過程，並相信透過不斷學習與實踐，能夠為科技發展貢獻一份心力。
             </p>
+        </div>
+    </section>
+
+    <section id="career-choice" class="career-choice-section section bg-dark">
+        <div class="container">
+            <h2>未來想選擇的就業產業</h2>
+            <div style="max-width: 800px; margin: 0 auto; padding: 20px; background-color: #4a637a; border-radius: 8px;">
+                <h3><i class="fas fa-microchip"></i> 選擇的產業：晶片工程師（半導體產業）</h3>
+                <p>
+                    為何選擇此產業：晶片是所有現代科技的核心。往這方面發展能讓我的興趣結合工作，同時半導體產業在全球佔據重要的地位，隨著AI與物聯網的發展，這個領域具有極佳的成長潛力與挑戰性。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="industry-intro" class="industry-intro-section section bg-light">
+        <div class="container">
+            <h2>所選擇產業的概要介紹</h2>
             <div class="card-grid">
-                <div class="card animate-fade-in delay-2">
-                    <h3><i class="fas fa-robot icon-glow"></i> 加速晶片設計與優化</h3>
-                    <p>
-                        AI 被整合到電子設計自動化（EDA）工具中。它能快速優化晶片的佈線、功耗和散熱設計，大幅縮短設計時間並提升晶片性能。
-                    </p>
+                <div class="card">
+                    <h3><i class="fas fa-flask"></i> 產業定義與範疇</h3>
+                    <p>晶片工程師屬於半導體產業，負責設計、製造、封裝及測試積體電路（IC）。</p>
                 </div>
-                <div class="card animate-fade-in delay-3">
-                    <h3><i class="fas fa-cogs icon-glow"></i> 優化製造流程與良率</h3>
-                    <p>
-                        在晶圓廠中，AI 用於預測性維護，減少設備停機時間；並利用 AI 視覺檢測快速識別和追蹤製程中的微小瑕疵，顯著提高產品良率。
-                    </p>
+                <div class="card">
+                    <h3><i class="fas fa-tools"></i> 主要角色</h3>
+                    <p>IC 設計工程師、製程工程師、封裝測試工程師，共同將複雜的電子系統濃縮到微小的矽晶片上。</p>
                 </div>
-                <div class="card animate-fade-in delay-4">
-                    <h3><i class="fas fa-brain icon-glow"></i> 催生新型 AI 專用晶片</h3>
-                    <p>
-                        晶片工程師利用 AI 來設計專門用於機器學習運算的神經網路處理器（NPU），這類 AI 晶片是未來運算的核心方向。
-                    </p>
+                <div class="card">
+                    <h3><i class="fas fa-link"></i> 產業生態鏈</h3>
+                    <p>分為 IC 設計（如聯發科）、晶圓代工製造（如台積電）和封裝測試（如日月光投控）三大環節。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai-contribution" class="ai-contribution-section section bg-dark">
+        <div class="container">
+            <h2>AI 在此產業中有何貢獻</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3><i class="fas fa-laptop-code"></i> 加速晶片設計</h3>
+                    <p>AI 整合到電子設計自動化（EDA）工具中，能快速優化晶片的佈線、功耗和散熱設計，縮短設計時間。</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-cogs"></i> 優化製造良率</h3>
+                    <p>在晶圓廠中，AI 用於預測性維護和視覺檢測，快速識別和追蹤製程中的微小瑕疵，顯著提高產品良率。</p>
+                </div>
+                <div class="card">
+                    <h3><i class="fas fa-rocket"></i> 催生新型晶片</h3>
+                    <p>利用AI設計專門用於機器學習運算的神經網路處理器（NPU），這類AI晶片是未來運算的核心方向。</p>
                 </div>
             </div>
         </div>
@@ -124,10 +240,9 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 [您的名字]. All rights reserved. 🚀</p>
+            <p>&copy; 2025 [您的名字]. 感謝造訪我的網站。</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
