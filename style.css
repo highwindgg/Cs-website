@@ -1,0 +1,325 @@
+/* 基本重置與通用樣式 */
+body {
+    font-family: 'Noto Sans TC', 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    scroll-behavior: smooth; /* 啟用平滑滾動 */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+}
+
+ul li::before {
+    content: '•'; /* 或使用 Font Awesome 圖示 */
+    color: #007bff;
+    position: absolute;
+    left: 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+.section {
+    padding: 80px 0;
+    text-align: center;
+    overflow: hidden; /* 確保內容超出時隱藏，為動畫做準備 */
+    position: relative; /* 為了背景動畫 */
+}
+
+.bg-light-blue {
+    background-color: #e9f7ff; /* 淺藍色背景 */
+}
+
+.bg-white {
+    background-color: #fff;
+}
+
+/* 導覽列 */
+.navbar {
+    background-color: #343a40; /* 深色導覽列背景 */
+    color: #fff;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .brand {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar .nav-links {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-links li {
+    margin-left: 30px;
+}
+
+.navbar .nav-links a {
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative;
+}
+
+.navbar .nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-links a:hover::after {
+    width: 100%;
+}
+
+/* 英雄區塊 */
+.hero-section {
+    background: linear-gradient(135deg, #007bff, #00c6ff); /* 漸層背景 */
+    color: #fff;
+    padding: 180px 0 100px; /* 增加頂部 padding 避免被導覽列遮擋 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* 確保至少佔滿一個視窗高度 */
+    position: relative;
+    overflow: hidden;
+}
+
+/* 英雄區塊的背景動畫 */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    animation: rotateBackground 20s linear infinite;
+}
+
+@keyframes rotateBackground {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+.hero-section h1 {
+    color: #fff;
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-section .lead-text {
+    font-size: 1.5em;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    object-fit: cover;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.2em;
+    margin: 0 15px;
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.social-links i {
+    margin-right: 8px;
+}
+
+/* 卡片樣式 */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: #007bff;
+    margin-top: 0;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.card h3 i {
+    margin-right: 10px;
+    font-size: 1.3em;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.intro-text {
+    font-size: 1.2em;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+/* 頁腳 */
+.footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* 內容滾動動畫 (JavaScript 會添加 .active 類) */
+.content-fade-in {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.content-fade-in.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        display: none; /* 在小螢幕上隱藏導覽列連結，可考慮漢堡選單 */
+    }
+
+    .navbar .container {
+        justify-content: center;
+    }
+
+    .hero-section {
+        padding: 120px 0 60px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section .lead-text {
+        font-size: 1.2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+    }
+}
