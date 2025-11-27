@@ -19,8 +19,8 @@ body {
     padding: 0;
     line-height: 1.7;
     color: var(--text-dark);
-    background-color: #f0f2f5; /* 更柔和的背景色 */
-    scroll-behavior: smooth;
+    background-color: #f0f2f5; /* 柔和的背景色 */
+    scroll-behavior: smooth; /* 啟用平滑滾動 */
     overflow-x: hidden; /* 防止橫向滾動條 */
 }
 
@@ -105,17 +105,17 @@ a:hover {
     padding: 100px 0;
     text-align: center;
     position: relative;
-    overflow: hidden; /* 重要：防止子元素溢出造成滾動條 */
+    overflow: hidden; /* 防止子元素溢出造成滾動條 */
 }
 
 .text-white {
     color: var(--text-light);
 }
-.text-white h2::after {
-    background-color: var(--text-light);
-}
 .text-white h2, .text-white h3 {
     color: var(--text-light);
+}
+.text-white h2::after {
+    background-color: var(--text-light);
 }
 
 /* --- 背景樣式與漸層 --- */
@@ -126,22 +126,9 @@ a:hover {
     background: linear-gradient(135deg, var(--primary-blue), var(--gradient-end));
     color: var(--text-light);
 }
-.bg-gradient-blue h2 {
-    color: var(--text-light);
-}
-.bg-gradient-blue h2::after {
-    background-color: var(--text-light);
-}
-
 .bg-dark-blue {
     background: linear-gradient(135deg, #2c3e50, #34495e); /* 深藍色漸層 */
     color: var(--text-light);
-}
-.bg-dark-blue h2 {
-    color: var(--text-light);
-}
-.bg-dark-blue h2::after {
-    background-color: var(--text-light);
 }
 
 
@@ -150,7 +137,7 @@ a:hover {
     background-color: rgba(33, 37, 41, 0.95); /* 半透明深色背景 */
     color: var(--text-light);
     padding: 18px 0;
-    position: fixed;
+    position: fixed; /* 固定在頂部 */
     width: 100%;
     top: 0;
     left: 0;
@@ -224,14 +211,15 @@ a:hover {
 .hero-section {
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
     color: var(--text-light);
-    padding: 200px 0 120px;
+    padding: 200px 0 120px; /* 增加頂部 padding 避免被導覽列遮擋 */
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 100vh; /* 確保至少佔滿一個視窗高度 */
     overflow: hidden;
-    position: relative; /* 為了背景動畫 */
-    background-image: url('https://images.unsplash.com/photo-1518770660439-463619088552?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* 科技背景圖 */
+    position: relative;
+    
+    background-image: url('hero_background.jpg'); /* <-- 請將 hero_background.jpg 替換成您的背景圖檔名 */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* 創造視差錯覺 */
@@ -269,7 +257,7 @@ a:hover {
 .hero-section .lead-text {
     font-size: 1.6em;
     max-width: 900px;
-    margin: 0 auto 40px;
+    margin: 0 auto 30px;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
     font-weight: 300;
 }
@@ -422,14 +410,7 @@ a:hover {
 }
 
 
-.intro-text {
-    font-size: 1.3em;
-    max-width: 900px;
-    margin: 0 auto 50px;
-    font-weight: 300;
-}
-
-/* 圖示發光動畫 */
+/* 圖示發光動畫 - 純 CSS */
 .icon-glow {
     animation: glowEffect 2s infinite alternate;
 }
@@ -459,56 +440,17 @@ a:hover {
     margin: 0;
 }
 
-
-/* --- 動畫：內容漸進顯現 (由 JS 觸發) --- */
-.content-reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.content-reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* 特定元素動畫 */
-.animate-pop-in {
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* 彈跳效果 */
-}
-.content-reveal.is-visible .animate-pop-in {
-    opacity: 1;
-    transform: scale(1);
-}
-
-.animate-fade-up {
+/* --- 滾動入場動畫的基礎：先隱藏所有內容 --- */
+/* 當 JS 觸發時，會添加 .is-visible 類別 */
+.content-fade-in {
     opacity: 0;
     transform: translateY(30px);
-    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    transition: opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.content-reveal.is-visible .animate-fade-up {
+.content-fade-in.is-visible {
     opacity: 1;
     transform: translateY(0);
 }
-
-.animate-scale-in {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-.content-reveal.is-visible .animate-scale-in {
-    opacity: 1;
-    transform: scale(1);
-}
-
-
-/* 延遲動畫 */
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
-.delay-4 { transition-delay: 0.8s; }
-.delay-5 { transition-delay: 1.0s; }
 
 
 /* --- 響應式設計 --- */
